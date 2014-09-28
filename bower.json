@@ -2,8 +2,7 @@
   "name": "workspace",
   "main": "app.js",
   "version": "0.0.0",
-  "authors": [
-  ],
+  "authors": [],
   "private": true,
   "ignore": [
     "**/.*",
@@ -12,9 +11,7 @@
     "test",
     "tests"
   ],
-  "devDependencies": {
-    "angular": "~1.2.14",
-    "angular-route": "~1.2.14"
+  "dependencies": {
+    "angular": "~1.3",
   }
 }
-

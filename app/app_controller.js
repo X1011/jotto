@@ -1,1 +1,1 @@
-'app controller goes here';
+'use strict';
