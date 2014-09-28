@@ -2,7 +2,7 @@ var gulp = require('gulp')
   , task = gulp.task.bind(gulp)
   , src = gulp.src
   , dest = gulp.dest
-  , watch = gulp.watch
+  , watch = gulp.watch.bind(gulp)
   , spawn = require('child_process').spawn
   , concat = require('gulp-concat')
   , jshint = require('gulp-jshint')
@@ -10,10 +10,13 @@ var gulp = require('gulp')
   , connect = require('gulp-connect')
 ;
 
-var build = gulp.dest('./build');
+var build = gulp.dest('build');
 
-task('scripts', function() {
-	src(['!./app/**/*_test.js','./app/**/*.js'])
+var js = ['app/*.js',
+		 '!app/*_test.js'];
+
+task('js', function() {
+	src(js)
 		//disabling jshint for now, since i don't want it to run on bower_components.
 		//maybe later i'll filter it
 		//.pipe(jshint())
@@ -24,23 +27,23 @@ task('scripts', function() {
 
 task('templates', function() {
 	src([
-			'!./app/index.html',
-			'./app/**/*.html'
+			'!app/index.html',
+			'app/**/*.html'
 		])
 		.pipe(templatecache('templates.js', {standalone: true}))
 		.pipe(build);
 });
 
 task('css', function() {
-	src('./app/**/*.css')
+	src('app/**/*.css')
 		.pipe(concat('app.css'))
 		.pipe(build);
 });
 
 task('vendorJS', function() {
 	src([
-			'!./bower_components/**/*.min.js',
-			'./bower_components/**/*.js'
+			'!app/bower_components/**/*.min.js',
+			'app/bower_components/**/*.js'
 		])
 		.pipe(concat('lib.js'))
 		.pipe(build);
@@ -48,15 +51,15 @@ task('vendorJS', function() {
 
 task('vendorCSS', function() {
 	src([
-			'!./bower_components/**/*.min.css',
-			'./bower_components/**/*.css'
+			'!bower_components/**/*.min.css',
+			'bower_components/**/*.css'
 		])
 		.pipe(concat('lib.css'))
 		.pipe(build);
 });
 
 task('copy-index', function() {
-	src('./app/index.html')	
+	src('app/index.html')	
 		.pipe(build);
 });
 
@@ -69,10 +72,10 @@ task('watch', function() {
 		return src(event.path)
 			.pipe(connect.reload());
 	});
-	watch(['./app/**/*.js','!./app/**/*test.js'], ['scripts']);
-	watch(['!./app/index.html','./app/**/*.html'], ['templates']);
-	watch('./app/**/*.css', ['css']);
-	watch('./app/index.html', ['copy-index']);
+	watch(js, ['js']);
+	watch(['!app/index.html','app/**/*.html'], ['templates']);
+	watch('app/**/*.css', ['css']);
+	watch('app/index.html', ['copy-index']);
 
 });
 
@@ -95,4 +98,4 @@ task('connect', connect.server({
 	https: true
 }));
 
-task('serve', ['connect', 'scripts', 'templates', 'css', 'copy-index', 'vendorJS', 'vendorCSS', 'watch']);
+task('serve', ['connect', 'js', 'templates', 'css', 'copy-index', 'vendorJS', 'vendorCSS', 'watch']);
