@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var plugins = require("gulp-load-plugins")({lazy:false});
+var spawn = require('child_process').spawn;
 
 gulp.task('scripts', function() {
 	gulp.src(['!./app/**/*_test.js','./app/**/*.js'])
@@ -65,10 +66,22 @@ gulp.task('watch', function() {
 
 });
 
+gulp.task('default', function() {
+	var start = spawn.bind(this, 'gulp', ['serve'], {stdio: 'inherit'});
+	var process = start();
+
+	function restart() {
+		process.kill();
+		process = start();
+	}
+
+	gulp.watch('gulpfile.js', restart);
+});
+
 gulp.task('connect', plugins.connect.server({
 	root: ['build'],
 	port: 9000,
 	livereload: true
 }));
 
-gulp.task('default',['connect', 'scripts', 'templates', 'css', 'copy-index', 'vendorJS', 'vendorCSS', 'watch']);
+gulp.task('serve', ['connect', 'scripts', 'templates', 'css', 'copy-index', 'vendorJS', 'vendorCSS', 'watch']);
