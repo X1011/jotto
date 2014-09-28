@@ -1,5 +1,5 @@
 {
-  "name": "gulp-ng-seed",
+  "name": "jotto",
   "version": "0.0.0",
   "main": "app.js",
   "devDependencies": {
