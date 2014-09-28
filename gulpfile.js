@@ -91,7 +91,8 @@ task('default', function() {
 task('connect', connect.server({
 	root: ['build'],
 	port: 9000,
-	livereload: true
+	livereload: {port: 9001},
+	https: true
 }));
 
 task('serve', ['connect', 'scripts', 'templates', 'css', 'copy-index', 'vendorJS', 'vendorCSS', 'watch']);
