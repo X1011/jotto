@@ -1,10 +1,11 @@
 {
 	"commands": {
 		"unit tests": "karma start karma-unit.js",
-		"server": "gulp"
+		"BrowserSync": "browser-sync start --server app --files 'app/**'",
+		"gulp": "gulp"
 	},
 	"preview": {
-		"app": "http://{{domain}}:9000",
+		"app": "http://{{domain}}:3000",
 		"Ungit": "http://{{domain}}:8448/#/repository?path=/home/codio/workspace",
 		"app: static": "https://{{domain}}/app/index.html"
 	}
