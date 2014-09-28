@@ -3,8 +3,10 @@ var plugins = require("gulp-load-plugins")({lazy:false});
 
 gulp.task('scripts', function() {
 	gulp.src(['!./app/**/*_test.js','./app/**/*.js'])
-		.pipe(plugins.jshint())
-		.pipe(plugins.jshint.reporter('default'))
+		//disabling jshint for now, since i don't want it to run on bower_components.
+		//maybe later i'll filter it
+		//.pipe(plugins.jshint())
+		//.pipe(plugins.jshint.reporter('default'))
 		.pipe(plugins.concat('app.js'))
 		.pipe(gulp.dest('./build'));
 });
@@ -14,7 +16,7 @@ gulp.task('templates', function() {
 			'!./app/index.html',
 			'./app/**/*.html'
 		])
-		.pipe(plugins.angularTemplatecache('templates.js',{standalone:true}))
+		.pipe(plugins.angularTemplatecache('templates.js', {standalone:true}))
 		.pipe(gulp.dest('./build'));
 });
 

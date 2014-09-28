@@ -1,9 +1,11 @@
 {
 	"commands": {
-		"unit tests": "karma start karma-unit.js"
+		"unit tests": "karma start karma-unit.js",
+		"server": "gulp"
 	},
 	"preview": {
-		"app": "https://{{domain}}/app/index.html",
-		"Ungit": "http://{{domain}}:8448/#/repository?path=/home/codio/workspace"
+		"app": "http://{{domain}}:9000",
+		"Ungit": "http://{{domain}}:8448/#/repository?path=/home/codio/workspace",
+		"app: static": "https://{{domain}}/app/index.html"
 	}
 }
