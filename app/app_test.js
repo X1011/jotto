@@ -1,9 +1,5 @@
-'use strict';
-
-var expect = chai.expect;
-
-describe('app_controller_test', function() {
-	it('should assert something', function() {
-		expect(true).toBe(true);
+describe('app', function() {
+	it('asserts something', function() {
+		true.should.equal(true);
 	});
 });

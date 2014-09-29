@@ -1,10 +1,7 @@
 module.exports = function(config) {config.set({
-	frameworks: ['jasmine'],
+	frameworks: ['mocha', 'chai'],
 	files: [
-		'./build/lib.js',
-		'./build/app.js',
-		'./build/templates.js',
-		'./app/**/*test.js'
+		'app/**/*_test.js'
 	],
 	
 	autoWatch: true,
