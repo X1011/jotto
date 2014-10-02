@@ -1,17 +1,13 @@
 {
 	"name": "jotto",
-	"main": "app.js",
-	"version": "0.0.0",
-	"authors": [],
+	"homepage": "https://github.com/X1011/jotto",
+	"authors": [{
+		"name": "dan smith",
+		"email": "XX1011@gmail.com",
+		"homepage": "http://X1011.com"
+	}],
 	"private": true,
-	"ignore": [
-		"**/.*",
-		"node_modules",
-		"bower_components",
-		"test",
-		"tests"
-	],
 	"dependencies": {
-		"angular": "~1.3",
+		"angular": "~1.3"
 	}
 }
