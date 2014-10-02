@@ -1,13 +1,13 @@
 {
 "commands": {
-	"watch all": "browser-sync start --server app --files 'app/**' & && karma start karma-unit.js",
+	"watch all": "browser-sync start --https --port 9502 --server app --files 'app/**' & karma start karma-unit.js &",
 	"unit tests": "karma start karma-unit.js",
 	"BrowserSync": "browser-sync start --server app --files 'app/**'",
 	"gulp": "gulp"
 },
 "preview": {
-	"app": "http://{{domain}}:3000",
-	"Ungit": "http://{{domain}}:8448/#/repository?path=/home/codio/workspace",
+	"app": "https://{{domain}}:9502",
+	"ungit": "https://{{domain}}:9501/#/repository?path=/home/codio/workspace",
 	"app: static": "https://{{domain}}/app/index.html"
 }
 }
