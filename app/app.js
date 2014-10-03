@@ -4,7 +4,10 @@ angular.module('jotto', [])
 		$scope.clues = [];
 		
 		$scope.submitGuess = function() {
-			$scope.clues.push($scope.guess);
+			$scope.clues.unshift({
+				word: $scope.guess,
+				score: score($scope.word, $scope.guess)
+			});
 			$scope.guess = '';
 		};
 	})

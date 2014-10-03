@@ -8,6 +8,7 @@
 	<link href="app.css" rel="stylesheet">
 	
 	<script src="bower_components/angular/angular.js"></script>
+	<script src="jotto.js"></script>
 	<script src="app.js"></script>
 </head>
 
@@ -21,7 +22,7 @@
 	</form>
 	
 	<ul>
-		<li ng-repeat="clue in clues">{{clue}}</li>
+		<li ng-repeat="clue in clues">{{clue.word}}: {{clue.score}}</li>
 	</ul>
 
 </body>
