@@ -1,6 +1,7 @@
 module.exports = function(config) {config.set({
 	frameworks: ['mocha', 'chai'],
 	files: [
+		'app/jotto.js',
 		'app/**/*_test.js'
 	],
 	
@@ -15,10 +16,10 @@ module.exports = function(config) {config.set({
 	
 	// possible values: dots, progress
 	// available reporters: https://npmjs.org/browse/keyword/karma-reporter
-	reporters: ['progress'],
+	reporters: ['dots'],
 	
 	// possible values: DISABLE, ERROR, WARN, INFO, DEBUG
-	logLevel: config.LOG_DEBUG,
+	logLevel: config.LOG_WARN,
 
 	port: 9876,
 	colors: true
