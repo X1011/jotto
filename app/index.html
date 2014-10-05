@@ -24,7 +24,14 @@
 	</form>
 	
 	<ul id='clues'>
-		<li ng-repeat='clue in clues'>{{clue.word}}: {{clue.score}}</li>
+		<li ng-repeat='clue in clues'>
+			{{clue.word}} has <ng-pluralize count='clue.score'
+				when='{"0":    "no letters",
+				       "one":   "1 letter",
+				       "other":"{} letters"}'>
+			</ng-pluralize>
+			 in common
+		</li>
 	</ul>
 
 </body>

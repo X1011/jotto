@@ -27,5 +27,5 @@ body {
 }
 
 #clues {
-	text-align: left;
+	list-style: none;
 }
