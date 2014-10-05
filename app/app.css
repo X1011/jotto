@@ -24,7 +24,15 @@ body {
 	text-align: center;
 }
 
+#guess-button {
+	margin: 1em auto 0 auto;
+	display: block;
+	
+	font-size: medium;
+	background: black;
+	color: #ccc;
+}
+
 #clues {
 	margin-top: 2em;
-	list-style: none;
 }
