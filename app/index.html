@@ -15,11 +15,15 @@
 
 <body ng-app='jotto' ng-controller='game'>
 	<form ng-submit='submitGuess()'>
-		<input type='text' ng-model='guess' placeholder='guess a word'>
+		
+		<!-- 'required' is for a hack to make the cursor not appear in the middle of the placeholder text -->
+		<input id='guess' type='text' autofocus required ng-model='guess'
+			placeholder='guess the secret {{word.length}}-letter word'>
+		
 		<input class='btn-primary' type='submit' value='guess'>
 	</form>
 	
-	<ul>
+	<ul id='clues'>
 		<li ng-repeat='clue in clues'>{{clue.word}}: {{clue.score}}</li>
 	</ul>
 
