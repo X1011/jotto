@@ -1,24 +1,22 @@
 body {
+	text-align: center;
 	font-family: sans-serif;
 	background: black;
 	color: white;
-	
-	text-align: center;
 }
 
 #guess {
-	background: none;
-	color: white;
+	margin-top: 2em;
 	
 	border: none;
 	border-bottom: solid 1px #333;
 	outline: none;
 	
-	margin-top: 2em;
-	margin-bottom: 1em;
-	
 	font-size: xx-large;
 	font-family: serif;
+	
+	background: none;
+	color: white;
 }
 
 /* hack to make the cursor not appear in the middle of the placeholder text */
@@ -27,5 +25,6 @@ body {
 }
 
 #clues {
+	margin-top: 2em;
 	list-style: none;
 }
