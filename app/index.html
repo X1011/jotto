@@ -24,13 +24,20 @@
 	</form>
 	
 	<div id='clues'>
-		<div ng-repeat='clue in clues'>
-			{{clue.word}} has <ng-pluralize count='clue.score'
-				when='{"0":    "no letters",
-				       "one":   "1 letter",
-				       "other":"{} letters"}'>
-			</ng-pluralize>
-			 in common
+		<div ng-repeat='clue in clues'
+		     ng-switch='clue.score === word.length'>
+			
+			<div ng-switch-when='true' class='win'>
+				{{clue.word}} is correct!
+			</div>
+			<div ng-switch-when='false'>
+				{{clue.word}} has <ng-pluralize count='clue.score'
+					when='{"0":    "no letters",
+						   "one":   "1 letter",
+						   "other":"{} letters"}'>
+				</ng-pluralize>
+				 in common
+			</div>
 		</div>
 	</div>
 

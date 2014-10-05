@@ -36,3 +36,7 @@ body {
 #clues {
 	margin-top: 2em;
 }
+
+.win {
+	color: #0f0;
+}
