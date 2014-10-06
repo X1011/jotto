@@ -6,6 +6,4 @@ describe('score', function() {
 	it('is 1 if 1 letter in common', function() {
 		score('a', 'a').should.equal(1);
 	});
-	
-	it('rejects duplicate letters');
 });
