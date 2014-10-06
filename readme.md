@@ -7,6 +7,6 @@ I tried to make it as clean and easy to jump in as possible. There is no need to
 
 When playing, I suggest you still use some scratchpad to keep track of letters you've eliminated or confirmed through logical deduction. Most digital implementations of Jotto include a letter tracker in-game; I just haven't had time to implement it here yet.
 
-entered into the [PubNub Multi-Player Game App Challenge](http://pubnubgame.challengepost.com). [demo video here](https://www.youtube.com/watch?v=tC0_Y2BJ8oM)
+[entered](http://challengepost.com/software/jotto-wjgf) into the [PubNub Multi-Player Game App Challenge](http://pubnubgame.challengepost.com)
 
 Copyright Daniel Smith. All rights reserved.
