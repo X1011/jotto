@@ -29,7 +29,11 @@ body {
 	display: block;
 	
 	font-size: medium;
-	background: black;
+	border: none;
+	border-radius: .35em;
+	padding: .3em .5em;
+	
+	background: #333;
 	color: #ccc;
 }
 
