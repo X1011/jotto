@@ -2,7 +2,7 @@ angular.module('jotto', [])
 	.controller('game', function($scope) {
 	
 		var channel = 'clues';
-		$scope.word = 'pubnub';
+		$scope.word = 'hacks';
 		$scope.clues = [];
 		
 		var pubnub = PUBNUB.init({
