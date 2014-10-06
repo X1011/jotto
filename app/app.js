@@ -4,6 +4,7 @@ angular.module('jotto', [])
 		var channel = 'clues';
 		$scope.word = 'hacks';
 		$scope.clues = [];
+		$scope.players = 0;
 		
 		var pubnub = PUBNUB.init({
 			publish_key:   'pub-c-8e12032f-3923-40df-a70d-ed394dba494d',
@@ -15,6 +16,13 @@ angular.module('jotto', [])
 			message: function(clue) {
 				$scope.$apply(function() {
 					$scope.clues.unshift(clue);
+				});
+			},
+			heartbeat: 30,
+			presence: function(data) {
+				console.log(data);
+				$scope.$apply(function() {
+					$scope.players = data.occupancy;
 				});
 			}
 		});
