@@ -41,5 +41,24 @@
 		</div>
 	</div>
 
+	<div class='pw-widget' pw:counter='horizontal' pw:layout='horizontal'>
+		<a class='pw-button-facebook-like'></a>
+		<a class='pw-button-twitter look-native'></a>
+		<a class='pw-button-google-plus'></a>
+		<!-- po.st adds ra1-pw-originalbuttons to the above elements, but not to this last one. i think it's because its expecting this to be the last button. adding it manually here so that the style is consistent -->
+		<a class='pw-button-post-share ra1-pw-originalbuttons'></a>
+		<iframe class='star' src='http://ghbtns.com/github-btn.html?user=X1011&repo=jotto&type=watch&count=true'></iframe>
+	</div>
+	
+	<script>
+		//config for po.st widget
+		var pwidget_config = {defaults: {
+			sharePopups: true,
+			transformations: {shorten: false},
+			services: {twitter: {via: 'x1011_'}}
+		}};
+	</script>
+	<script src='http://i.po.st/static/v3/post-widget.js#publisherKey=vjardcusbg7g666f86p7'></script>
+
 </body>
 </html>

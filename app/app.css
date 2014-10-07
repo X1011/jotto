@@ -1,5 +1,8 @@
 body {
+	margin-left: 0;
+	margin-right: 0;
 	text-align: center;
+	
 	font-family: sans-serif;
 	background: black;
 	color: white;
@@ -43,4 +46,26 @@ body {
 
 .win {
 	color: #0f0;
+}
+
+.pw-widget {
+	position: absolute;
+	bottom: .5em;
+	width: 100%;
+}
+
+/* overspecified & !important to override po.st's style */
+div.pw-widget {
+	font-size: 100% !important;
+}
+
+.pw-layout-horizontal .pw-button-googleplus.pw-button-counter-horizontal .pw-button__native {
+	width: 58px !important;
+}
+
+.star {
+	margin-bottom: 1px;
+	border: 0;
+	width: 100px;
+	height: 20px;
 }
