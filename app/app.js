@@ -20,13 +20,18 @@ angular.module('jotto', [])
 		});
 		
 		$scope.submitGuess = function() {
-			pubnub.publish({channel: channel,
-				message: {
-					word: $scope.guess,
-					score: score($scope.word, $scope.guess)
-				}
+			var clue = {
+				word: $scope.guess,
+				score: score($scope.word, $scope.guess)
+			}
+			pubnub.publish({
+				channel: channel,
+				message: clue
 			});
+			
 			$scope.guess = '';
+			
+			analytics.track('guess', clue);
 		};
 	})
 ;
