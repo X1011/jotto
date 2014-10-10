@@ -31,7 +31,7 @@
 	
 	<div id='clues'>
 		<div ng-repeat='clue in clues'
-		     ng-switch='clue.score === word.length'>
+		     ng-switch='clue.word.toLowerCase() === word.toLowerCase()'>
 			
 			<div ng-switch-when='true' class='win'>
 				{{clue.word}} is correct!
