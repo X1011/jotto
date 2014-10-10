@@ -4,6 +4,7 @@ angular.module('jotto', [])
 		var channel = 'clues';
 		$scope.word = 'hacks';
 		$scope.clues = [];
+		//$scope.clues = Array.apply(0, Array(20)).map(function(){return {word: 'foo', score: 0}}); //for testing
 		
 		var pubnub = PUBNUB.init({
 			publish_key:   'pub-c-8e12032f-3923-40df-a70d-ed394dba494d',
@@ -23,7 +24,7 @@ angular.module('jotto', [])
 			var clue = {
 				word: $scope.guess,
 				score: score($scope.word, $scope.guess)
-			}
+			};
 			pubnub.publish({
 				channel: channel,
 				message: clue

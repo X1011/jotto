@@ -26,7 +26,7 @@ footer {
 body {
 	font-family: sans-serif;
 	background: black;
-	color: white;
+	color: #a9a9a9;
 }
 
 input[type='text'] {
@@ -59,6 +59,11 @@ input[type='submit'] {
 
 .win {
 	color: #0f0;
+}
+
+em {
+	font-style: normal;
+	color: white;
 }
 
 /* overspecified & !important to override po.st's style */

@@ -37,12 +37,16 @@
 				{{clue.word}} is correct!
 			</div>
 			<div ng-switch-when='false'>
-				{{clue.word}} has <ng-pluralize count='clue.score'
-					when='{"0":    "no letters",
-						   "one":   "1 letter",
-						   "other":"{} letters"}'>
+				<em>{{clue.word}}</em> has
+				<ng-switch on='clue.score'>
+					<span ng-switch-when='0'>no</span>
+					<em ng-switch-default>{{clue.score}}</em>
+				</ng-switch>
+				<ng-pluralize count='clue.score'
+					when='{"one":  "letter",
+					       "other":"letters"}'>
 				</ng-pluralize>
-				 in common
+				in common
 			</div>
 		</div>
 	</div>
