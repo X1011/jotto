@@ -1,19 +1,37 @@
+/* layout & spacing */
 body {
 	margin-left: 0;
 	margin-right: 0;
 	text-align: center;
-	
+}	
+#guess {
+	margin-top: 2em;
+}
+#guess-button {
+	margin: 1em auto 0 auto;
+	display: block;
+}
+#clues {
+	margin-top: 2em;
+}
+footer {
+	position: absolute;
+	bottom: .5em;
+	width: 100%;
+}
+
+
+/* appearance */
+
+body {
 	font-family: sans-serif;
 	background: black;
 	color: white;
 }
 
-#guess {
-	margin-top: 2em;
-	
+input[type='text'] {
 	border: none;
 	border-bottom: solid 1px #333;
-	outline: none;
 	
 	font-size: xx-large;
 	font-family: serif;
@@ -21,16 +39,15 @@ body {
 	background: none;
 	color: white;
 }
-
+input[type='text']:focus {
+	outline: none;
+}
 /* hack to make the cursor not appear in the middle of the placeholder text */
-#guess:valid {
+input[type='text']:valid {
 	text-align: center;
 }
 
-#guess-button {
-	margin: 1em auto 0 auto;
-	display: block;
-	
+input[type='submit'] {
 	font-size: medium;
 	border: none;
 	border-radius: .35em;
@@ -40,25 +57,16 @@ body {
 	color: #ccc;
 }
 
-#clues {
-	margin-top: 2em;
-}
-
 .win {
 	color: #0f0;
 }
 
-.pw-widget {
-	position: absolute;
-	bottom: .5em;
-	width: 100%;
-}
-
 /* overspecified & !important to override po.st's style */
-div.pw-widget {
+.pw-widget.pw-widget {
 	font-size: 100% !important;
 }
 
+/* the Google+ span is oddly too wide by default */
 .pw-layout-horizontal .pw-button-googleplus.pw-button-counter-horizontal .pw-button__native {
 	width: 58px !important;
 }
