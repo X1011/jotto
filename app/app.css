@@ -1,7 +1,7 @@
 /* layout & spacing */
+
 body {
-	margin-left: 0;
-	margin-right: 0;
+	margin: 0;
 	text-align: center;
 }	
 #guess {
@@ -14,10 +14,47 @@ body {
 #clues {
 	margin-top: 2em;
 }
-footer {
-	position: absolute;
-	bottom: .5em;
+.pw-widget {
+	margin-top: 2em;
+	margin-bottom: .5em;
+}
+
+/* overspecified & !important to override po.st's style */
+.pw-widget.pw-widget {
+	font-size: 100% !important;
+}
+
+.pw-widget > * {
+	margin-top: .5em;
+}
+
+/* the Google+ span is oddly too wide by default */
+.pw-layout-horizontal .pw-button-googleplus.pw-button-counter-horizontal .pw-button__native {
+	width: 58px !important;
+}
+
+.star {
+	margin-bottom: 1px;
+	border: 0;
+	width: 100px;
+	height: 20px;
+}
+
+/* flexible sticky footer, thanks to http://pixelsvsbytes.com/blog/2011/09/sticky-css-footers-the-flexible-way */
+html, body {
+	height: 100%;
+}
+.frame {
+	display: table;
 	width: 100%;
+	height: 100%;
+}
+.frame > * {
+	display: table-row;
+	height: 1px;
+}
+[role='main'] {
+	height: auto;
 }
 
 
@@ -64,21 +101,4 @@ input[type='submit'] {
 em {
 	font-style: normal;
 	color: white;
-}
-
-/* overspecified & !important to override po.st's style */
-.pw-widget.pw-widget {
-	font-size: 100% !important;
-}
-
-/* the Google+ span is oddly too wide by default */
-.pw-layout-horizontal .pw-button-googleplus.pw-button-counter-horizontal .pw-button__native {
-	width: 58px !important;
-}
-
-.star {
-	margin-bottom: 1px;
-	border: 0;
-	width: 100px;
-	height: 20px;
 }
