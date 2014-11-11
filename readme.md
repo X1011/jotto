@@ -7,6 +7,8 @@ I tried to make it as clean and easy to jump in as possible. There is no need to
 
 When playing, I suggest you still use some scratchpad to keep track of letters you've eliminated or confirmed through logical deduction. Most digital implementations of Jotto include a letter tracker in-game; I just haven't had time to implement it here yet.
 
+I had been using Yeoman in a previous project, but I found that it wasn't really keeping up with the latest tools like Gulp or best practices like modular directory structures, so I abandoned it. I went with Gulp by itself for a little bit, but then I realized that all I need for development is unit testing and automatic browser refreshing, so I just used Karma & BrowserSync's standalone executables. This inspires me to see how far I can go without preprocessors, whose complexity always causes problems. I'll try to use polyfills instead to fill in the gaps, at least for development.
+
 [entered](http://challengepost.com/software/jotto-wjgf) into the [PubNub Multi-Player Game App Challenge](http://pubnubgame.challengepost.com)
 
 Copyright Daniel Smith. All rights reserved.
