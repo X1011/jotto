@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width'>
+	<title>Jotto</title>
+	
+	<link href='app.css' rel='stylesheet'>
+	
+	<script src='lib/angular/angular.min.js'></script>
+	<script src='http://cdn.pubnub.com/pubnub.min.js'></script>
+	<script src='jotto.js'></script>
+	<script src='app.js'></script>
+	
+	<script type="text/javascript">
+		window.analytics=window.analytics||[],window.analytics.methods=["identify","group","track","page","pageview","alias","ready","on","once","off","trackLink","trackForm","trackClick","trackSubmit"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var key=window.analytics.methods[i];window.analytics[key]=window.analytics.factory(key)}window.analytics.load=function(t){if(!document.getElementById("analytics-js")){var a=document.createElement("script");a.type="text/javascript",a.id="analytics-js",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.io/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)}},window.analytics.SNIPPET_VERSION="2.0.9",
+		window.analytics.load("UwWLZCnUC3");
+		window.analytics.page();
+	</script>
+</head>
+
+<body ng-app='jotto' ng-controller='game'>
+	<div class='frame'>
+		<div role='main'>
+			<form ng-submit='submitGuess()'>
+
+				<!-- 'required' is for a hack to make the cursor not appear in the middle of the placeholder text -->
+				<input id='guess' type='text' autofocus required ng-model='guess'
+					placeholder='guess the secret {{word.length}}-letter word'>
+
+				<input id='guess-button' class='btn-primary' type='submit' value='guess'>
+			</form>
+
+			<div id='clues'>
+				<div ng-repeat='clue in clues'
+					 ng-switch='clue.word.toLowerCase() === word.toLowerCase()'>
+
+					<div ng-switch-when='true' class='win'>
+						{{clue.word}} is correct!
+					</div>
+					<div ng-switch-when='false'>
+						<em>{{clue.word}}</em> has
+						<ng-switch on='clue.score'>
+							<span ng-switch-when='0'>no</span>
+							<em ng-switch-default>{{clue.score}}</em>
+						</ng-switch>
+						<ng-pluralize count='clue.score'
+							when='{"one":  "letter",
+								   "other":"letters"}'>
+						</ng-pluralize>
+						in common
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<footer>
+			<div class='pw-widget' pw:counter='horizontal' pw:layout='horizontal'>
+				<a class='pw-button-facebook-like'></a>
+				<a class='pw-button-twitter look-native'></a>
+				<a class='pw-button-google-plus'></a>
+				<!-- po.st adds ra1-pw-originalbuttons to the above elements, but not to this last one. i think it's because its expecting this to be the last button. adding it manually here so that the style is consistent -->
+				<a class='pw-button-post-share ra1-pw-originalbuttons'></a>
+				<iframe class='star' src='http://ghbtns.com/github-btn.html?user=X1011&repo=jotto&type=watch&count=true'></iframe>
+			</div>
+		</footer>
+	</div>
+	
+	<script>
+		//config for po.st widget
+		var pwidget_config = {defaults: {
+			sharePopups: true,
+			transformations: {shorten: false},
+			services: {twitter: {via: 'x1011_'}}
+		}};
+	</script>
+	<script src='http://i.po.st/static/v3/post-widget.js#publisherKey=vjardcusbg7g666f86p7'></script>
+
+</body>
+</html>
